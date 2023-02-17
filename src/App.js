@@ -1,11 +1,13 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import useModal from './hooks/useModal';
 import Modal from './Modal'
+import CandidateRow from './CandidateRow'
+import { useLocalStorageState } from './hooks/useLocalStorage';
 import './App.css';
 
 function App() {
-  const [candidates, setCandidates] = useState([]);
-  const [isFetching, setIsFetching] = useState(true);
+  const [candidates, setCandidates] = useLocalStorageState('candidates', []);
+  const [isFetching, setIsFetching] = useState(false);
   const {isOpen, toggle } = useModal();
 
   const getCandidates = useCallback(async (controller) => {
@@ -14,7 +16,7 @@ function App() {
     const results = await response.json();
     await setCandidates([...candidates, ...results.results])
     setIsFetching(false);
-  }, [candidates])
+  }, [candidates, setCandidates])
 
   useEffect(() => {
 		const controller = new AbortController();
@@ -26,7 +28,7 @@ function App() {
 
   console.log(candidates)
 
-  // get more candidates
+  // get more candidates button
 
   return (
     <div className="App">
@@ -39,15 +41,16 @@ function App() {
       </div>
 
       {!isFetching && <div className="candidates-list">
-        list of candidates component
+        {candidates.map(candidate => {
+          return (
+            <CandidateRow candidate={candidate} openModal={toggle} key={candidate.name.last} />
+          )
+        })}
       </div>}
 
       {/* isFetching loader */}
 
-      <div>
-        <button onClick={toggle}>modal open</button>
-        <Modal isOpen={isOpen} hide={toggle} />
-      </div>
+      <Modal isOpen={isOpen} hide={toggle} />
     </div>
   );
 }

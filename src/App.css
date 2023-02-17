@@ -58,53 +58,44 @@
 }
 
 button {
+  font-weight: 600;
   border: none;
   border-radius: 3px;
   padding: 4px 16px;
   background: #9572f8;
   color: #fff;
   cursor: pointer;
+  margin: 0 2px;
 }
 
 .candidates-list {
   width: 100%;
-  background: #9572f8;
   margin: 48px 0;
 }
 
-/* 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.candidate-row {
+  justify-content: space-between;
+  border: 1px solid #cfa9ff;
+  margin: 8px 12px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 8px 8px;
 }
 
-.App-link {
-  color: #61dafb;
+.candidate-row button,
+.candidate-row div {
+  width: 200px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* .accept-button {
+  background: ;
+  max-width: 100px;
+  border: 1px solid #680adc;
 } */
 
+.accept-button,
+.reject-button {
+  background: #fff;
+  color: #680adc;
+  border: 1px solid #680adc;
+  max-width: 100px;
+}
