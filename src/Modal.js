@@ -11,11 +11,13 @@ const Modal = ({ isOpen, hide, candidate, accept, reject }) => {
 	const handleAccept = () => {
 		accept(candidate, notes)
 		hide()
+		setNotes(null)
 	}
 	
 	const handleReject = () => {
 		reject(candidate, notes)
 		hide()
+		setNotes(null)
 	}
 
 	return isOpen ? ReactDOM.createPortal(
