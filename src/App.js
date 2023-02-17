@@ -1,14 +1,23 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import useModal from './hooks/useModal';
 import Modal from './Modal'
-import CandidateRow from './CandidateRow'
 import { useLocalStorageState } from './hooks/useLocalStorage';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import './App.css';
+import 'react-tabs/style/react-tabs.css';
+import CandidateRow from './CandidateRow';
 
 function App() {
   const [candidates, setCandidates] = useLocalStorageState('candidates', []);
   const [isFetching, setIsFetching] = useState(false);
+  const [modalCandidate, setModalCandidate] = useState();
   const {isOpen, toggle } = useModal();
+
+  const newCandidates = candidates.filter(c => !c.accepted && !c.rejected);
+  const acceptedCandidates = candidates.filter(c => c.accepted);
+  const rejectedCandidates = candidates.filter(c => c.rejected);
+  console.log('bob', newCandidates);
+  console.log('monet', acceptedCandidates);
 
   const getCandidates = useCallback(async (controller) => {
     setIsFetching(true);
@@ -26,9 +35,32 @@ function App() {
 		}
 	}, [candidates, getCandidates])
 
-  console.log(candidates)
+  // fetch more candidates button
 
-  // get more candidates button
+  const handleOpenModal = (candidate) => {
+    toggle()
+    setModalCandidate(candidate)
+  }
+
+  const accept = (candidate) => {
+    const index = candidates.indexOf(candidate);
+    const accepted = {...candidate, accepted: true, rejected: false};
+    const newList = [...candidates]
+    newList[index] = accepted;
+    setCandidates(newList);
+  }
+
+  const reject = (candidate) => {
+    const index = candidates.indexOf(candidate);
+    const rejected = {...candidate, accepted: false, rejected: true};
+    const newList = [...candidates]
+    newList[index] = rejected;
+    setCandidates(newList);
+  }
+
+  const FetchMoreCandidates = (
+    <button onClick={getCandidates}>Fetch More Candidates</button>
+  )
 
   return (
     <div className="App">
@@ -41,16 +73,50 @@ function App() {
       </div>
 
       {!isFetching && <div className="candidates-list">
-        {candidates.map(candidate => {
-          return (
-            <CandidateRow candidate={candidate} openModal={toggle} key={candidate.name.last} />
-          )
-        })}
+        <Tabs>
+          <TabList>
+            <Tab>New Candidates</Tab>
+            <Tab>Accepted</Tab>
+            <Tab>Rejected</Tab>
+          </TabList>
+
+          <TabPanel>
+            {newCandidates.length === 0 ? FetchMoreCandidates : newCandidates.map(candidate => (
+              <CandidateRow
+                candidate={candidate}
+                openModal={() => handleOpenModal(candidate)}
+                key={candidate.name.last}
+                accept={accept}
+                reject={reject}
+              />
+            ))}
+          </TabPanel>
+          <TabPanel>
+            {acceptedCandidates.length === 0 ? 'Accepted candidates will appear here.' : acceptedCandidates.map(candidate => (
+              <CandidateRow
+                candidate={candidate}
+                openModal={() => handleOpenModal(candidate)}
+                key={candidate.name.last}
+                accept={accept}
+                reject={reject}
+              />
+            ))}
+          </TabPanel>
+          <TabPanel>
+            {rejectedCandidates.length === 0 ? 'Rejected candidates will appear here.' : rejectedCandidates.map(candidate => (
+              <CandidateRow
+                candidate={candidate}
+                openModal={() => handleOpenModal(candidate)}
+                key={candidate.name.last}
+                accept={accept}
+                reject={reject}
+              />
+            ))}
+          </TabPanel>
+        </Tabs>    
       </div>}
 
-      {/* isFetching loader */}
-
-      <Modal isOpen={isOpen} hide={toggle} />
+      <Modal isOpen={isOpen} hide={toggle} candidate={modalCandidate} />
     </div>
   );
 }

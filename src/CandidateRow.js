@@ -1,17 +1,17 @@
 import React from 'react';
 
-const CandidateRow = ({ candidate, openModal }) => {
+const CandidateRow = ({ candidate, openModal, accept, reject }) => {
 	return (
-		<div className='candidate-row' onClick={() => openModal()}>
+		<div className='candidate-row'>
+			<button onClick={openModal}>{candidate.name.first} {candidate.name.last}</button>
+			<div onClick={openModal}>{candidate.location.city}</div>
+			<div onClick={openModal}>{candidate.location.state}</div>
+			<div onClick={openModal}>{candidate.location.country}</div>
 
-			<button>{candidate.name.first} {candidate.name.last}</button>
-
-			<div>{candidate.location.city}</div>
-			<div>{candidate.location.state}</div>
-			<div>{candidate.location.country}</div>
-
-			<button className="accept-button">Accept</button>
-			<button className="reject-button">Reject</button>
+			<div className="row-buttons">
+				<button className="accept-button" onClick={() => accept(candidate)}>Accept</button>
+				<button className="reject-button" onClick={() => reject(candidate)}>Reject</button>
+			</div>
 		</div>
 	)
 };

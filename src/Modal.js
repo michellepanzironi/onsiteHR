@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import useOnClickOutside from './hooks/useOnClickOutside'
 
-const Modal = ({ isOpen, hide }) => {
+const Modal = ({ isOpen, hide, candidate }) => {
 	const ref = React.useRef();
 	useOnClickOutside(ref, hide);
 
@@ -22,7 +22,7 @@ const Modal = ({ isOpen, hide }) => {
 						</button>
 					</div>
 					<div className='modal-body'>
-						modal body
+						{candidate.name.first}
 					</div>
 				</div>
 			</div>
