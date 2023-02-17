@@ -2,6 +2,77 @@
   text-align: center;
 }
 
+.header {
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  /* border: 1px solid #680adc; */
+}
+
+.header-logo {
+  max-height: 40px;
+  padding: 10px;
+}
+
+.modal-overlay { 
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1040;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  opacity: .5;
+}
+
+.modal-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  outline: 0;
+}
+
+.modal {
+  z-index: 100;
+  background: white;
+  position: relative;
+  margin: 16px auto;
+  border-radius: 3px;
+  max-width: 500px;
+  padding: 8px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-close-button {
+  font-size: 18px;
+  border: none;
+}
+
+button {
+  border: none;
+  border-radius: 3px;
+  padding: 4px 16px;
+  background: #9572f8;
+  color: #fff;
+  cursor: pointer;
+}
+
+.candidates-list {
+  width: 100%;
+  background: #9572f8;
+  margin: 48px 0;
+}
+
+/* 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +106,5 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
+
