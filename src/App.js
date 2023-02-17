@@ -16,8 +16,6 @@ function App() {
   const newCandidates = candidates.filter(c => !c.accepted && !c.rejected);
   const acceptedCandidates = candidates.filter(c => c.accepted);
   const rejectedCandidates = candidates.filter(c => c.rejected);
-  console.log('bob', newCandidates);
-  console.log('monet', acceptedCandidates);
 
   const getCandidates = useCallback(async (controller) => {
     setIsFetching(true);
@@ -35,24 +33,24 @@ function App() {
 		}
 	}, [candidates, getCandidates])
 
-  // fetch more candidates button
-
   const handleOpenModal = (candidate) => {
     toggle()
     setModalCandidate(candidate)
   }
 
-  const accept = (candidate) => {
+  const accept = (candidate, newNotes) => {
     const index = candidates.indexOf(candidate);
     const accepted = {...candidate, accepted: true, rejected: false};
+    if (newNotes) accepted.notes = newNotes;
     const newList = [...candidates]
     newList[index] = accepted;
     setCandidates(newList);
   }
 
-  const reject = (candidate) => {
+  const reject = (candidate, newNotes) => {
     const index = candidates.indexOf(candidate);
     const rejected = {...candidate, accepted: false, rejected: true};
+    if (newNotes) rejected.notes = newNotes;
     const newList = [...candidates]
     newList[index] = rejected;
     setCandidates(newList);
@@ -116,7 +114,7 @@ function App() {
         </Tabs>    
       </div>}
 
-      <Modal isOpen={isOpen} hide={toggle} candidate={modalCandidate} />
+      <Modal isOpen={isOpen} hide={toggle} candidate={modalCandidate} accept={accept} reject={reject} />
     </div>
   );
 }
