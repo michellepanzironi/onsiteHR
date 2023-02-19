@@ -125,6 +125,7 @@ button {
 .candidate-row div {
   width: 200px;
   min-width: 100px;
+  justify-content: end;
 }
 
 .row-buttons {

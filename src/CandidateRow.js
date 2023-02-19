@@ -1,16 +1,25 @@
 import React from 'react';
 
 const CandidateRow = ({ candidate, openModal, accept, reject }) => {
+	const handleAccept = (e) => {
+		e.stopPropagation()
+		accept(candidate)
+	}
+	const handleReject = (e) => {
+		e.stopPropagation()
+		reject(candidate)
+	}
+
 	return (
-		<div className='candidate-row flex'>
-			<button onClick={openModal}>{candidate.name.first} {candidate.name.last}</button>
-			<div onClick={openModal}>{candidate.location.city}</div>
-			<div onClick={openModal}>{candidate.location.state}</div>
-			<div onClick={openModal}>{candidate.location.country}</div>
+		<div className='candidate-row flex' onClick={openModal}>
+			<button>{candidate.name.first} {candidate.name.last}</button>
+			<div>{candidate.location.city}</div>
+			<div>{candidate.location.state}</div>
+			<div>{candidate.location.country}</div>
 
 			<div className="row-buttons flex">
-				<button className="accept-button" onClick={() => accept(candidate)}>Accept</button>
-				<button className="reject-button" onClick={() => reject(candidate)}>Reject</button>
+				{!candidate.accepted && <button className="accept-button" onClick={handleAccept}>Accept</button>}
+				{!candidate.rejected && <button className="reject-button" onClick={handleReject}>Reject</button>}
 			</div>
 		</div>
 	)
