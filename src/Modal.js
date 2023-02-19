@@ -54,9 +54,8 @@ const Modal = ({ isOpen, hide, candidate, accept, reject }) => {
 								<div>{candidate.location.country}</div>
 							</div>
 							<div>
-								<div>{candidate.phone}</div>
-								<div>{candidate.cell}</div>
 								<div>{candidate.email}</div>
+								<div>{candidate.cell}</div>
 							</div>
 						</div>
 

@@ -68,8 +68,8 @@
 }
 
 .modal-data {
-  /* margin: 0px 8px; */
-  font-size: 14px;
+  margin: 18px 0 8px 0;
+  font-size: 16px;
   font-weight: 500;
 }
 
@@ -77,23 +77,15 @@
   padding: 2px 0;
 }
 
-.modal-data > div:nth-child(2) {
-  /* border: 1px solid pink; */
-
-}
-
 .modal-body img {
   width: 100px;
+  height: 100%;
   border-radius: 3px;
-}
-
-.modal-close-button {
-  font-size: 18px;
-  border: none;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 }
 
 .modal label {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
 }
 
@@ -102,11 +94,13 @@ button {
   font-weight: 600;
   border: none;
   border-radius: 3px;
-  padding: 4px 16px;
+  padding: 8px 16px;
   background: #9572f8;
   color: #fff;
   cursor: pointer;
-  margin: 0 2px;
+  margin: 0 4px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease 0s;
 }
 
 .candidates-list {
@@ -118,7 +112,13 @@ button {
   justify-content: space-between;
   padding: 8px 16px;
   min-width: 700px;
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.candidate-row > div {
+  margin: auto 0;
 }
 
 .candidate-row button,
@@ -126,10 +126,6 @@ button {
   width: 200px;
   min-width: 100px;
   justify-content: end;
-}
-
-.row-buttons {
-  margin-right: 12px;
 }
 
 .modal .row-buttons {
@@ -142,7 +138,7 @@ button {
 .reject-button {
   background: #fff;
   color: #680adc;
-  border: 1px solid #680adc;
+  border: 1.5px solid #680adc;
   max-width: 100px;
   z-index: 50;
 }
@@ -151,4 +147,46 @@ button {
   font-size: 36px;
   margin: auto 0;
   font-weight: 600;
+}
+
+button:hover {
+  background-color: #680adc;
+  box-shadow: 0px 6px 8px #cfa9ff;
+  color: #fff;
+  border: 1.5px solid transparent;
+}
+
+button.accept-button:hover {
+  background-color: #2EE59D;
+  box-shadow: 0px 6px 8px rgba(46, 229, 157, 0.4);
+}
+
+button.reject-button:hover {
+  background-color: rgb(229, 73, 46);
+  box-shadow: 0px 6px 8px rgba(229, 77, 46, 0.4);
+}
+
+.modal-close-button {
+  color: #680adc;
+  background: none;
+  padding: 0;
+  font-size: 32px;
+  box-shadow: none;
+  margin-right: 8px;
+  margin-top: 0px;
+  transition-duration: 2s;
+  transition-property: transform;
+}
+
+.modal-close-button:hover {
+  color: #9572f8;
+  border: none;
+  background-color: #fff;
+  box-shadow: none;
+  transform: rotate(360deg);
+}
+
+.react-tabs__tab-list {
+  color: #680adc;
+  font-weight: 500;
 }
