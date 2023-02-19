@@ -44,18 +44,18 @@ const Modal = ({ isOpen, hide, candidate, accept, reject }) => {
 								<div>{candidate.name.first}</div>
 								<div>{candidate.name.last}</div>
 							</div>
-							<img src={candidate.picture.medium} alt="candidate" />
+							<img src={candidate.picture.large} alt="candidate" />
 						</div>
 
-						<div className="flex">
+						<div className="flex modal-data">
 							<div>
 								<div>{`${candidate.location.city}, ${candidate.location.state}`}</div>
 								<div>{candidate.location.country}</div>
 							</div>
 							<div>
-								<div>{candidate.email}</div>
 								<div>{candidate.phone}</div>
 								<div>{candidate.cell}</div>
+								<div>{candidate.email}</div>
 							</div>
 						</div>
 
@@ -66,7 +66,7 @@ const Modal = ({ isOpen, hide, candidate, accept, reject }) => {
 								onChange={(e) => setNotes(e.target.value)}
 								defaultValue={candidate.notes}
 								rows={4}
-								cols={40}
+								cols={51}
 							/>
 						</label>
 

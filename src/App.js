@@ -66,7 +66,7 @@ function App() {
         <img className="header-logo" src="/onsiteiq vector-logo.png" alt="header-logo" />
       </header>
 
-      <div>
+      <div className="top-info">
         Select a candidate to view details and make changes
       </div>
 
