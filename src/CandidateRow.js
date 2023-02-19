@@ -13,9 +13,11 @@ const CandidateRow = ({ candidate, openModal, accept, reject }) => {
 	return (
 		<div className="candidate-row flex" data-testid="candidate-row" onClick={openModal}>
 			<button>{candidate.name.first} {candidate.name.last}</button>
-			<div>{candidate.location.city}</div>
-			<div>{candidate.location.state}</div>
-			<div>{candidate.location.country}</div>
+			<div className="flex candidate-location">
+				<div>{candidate.location.city}</div>
+				<div>{candidate.location.state}</div>
+				<div>{candidate.location.country}</div>
+			</div>
 
 			<div className="row-buttons flex">
 				{!candidate.accepted && 
