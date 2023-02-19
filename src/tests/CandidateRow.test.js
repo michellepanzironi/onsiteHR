@@ -44,3 +44,4 @@ test('allow the user to reject an accepted candidate', () => {
 	userEvent.click(accept);
 	expect(props.accept).toBeCalled()
 });
+
