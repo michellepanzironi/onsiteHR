@@ -29,6 +29,7 @@ const Modal = ({ isOpen, hide, candidate, accept, reject }) => {
 					<div className="modal-header flex">
 						<button 
 							className="modal-close-button"
+							data-testid="modal-close-button"
 							onClick={hide}
 							type="button"
 							arai-label="close"
@@ -71,8 +72,20 @@ const Modal = ({ isOpen, hide, candidate, accept, reject }) => {
 						</label>
 
 						<div className="row-buttons flex">
-							<button className="accept-button" onClick={handleAccept}>{candidate.accepted ? 'Save' : 'Accept'}</button>
-							<button className="reject-button" onClick={handleReject}>{candidate.rejected ? 'Save' : 'Reject'}</button>
+							<button
+								className="accept-button"
+								onClick={handleAccept}
+								data-testid="accept-button"
+							>
+								{candidate.accepted ? 'Save' : 'Accept'}
+							</button>
+							<button
+								className="reject-button"
+								onClick={handleReject}
+								data-testid="reject-button"
+							>
+								{candidate.rejected ? 'Save' : 'Reject'}
+							</button>
 						</div>
 
 					</div>
