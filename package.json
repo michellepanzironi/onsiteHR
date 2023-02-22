@@ -1,7 +1,7 @@
 {
   "name": "onsiteiq",
   "version": "0.1.0",
-  "homepage": "michellepanzironi.com/onsiteiq",
+  "homepage": "./onsiteiq",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
