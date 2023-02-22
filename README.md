@@ -4,8 +4,8 @@ This is a simple front end app that displays a mock HR interface that allows the
 
 This app was bootstrapped with `npx create-react-app` \
 Candidate data uses https://randomuser.me/api \
-Automated tests written with react-testing-library 
-Tab view is managed using react-tabs
+Automated tests written with react-testing-library \
+Tab view is managed using `react-tabs`
 
 ## When running this app will:
 
