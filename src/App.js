@@ -11,7 +11,7 @@ function App() {
   const [candidates, setCandidates] = useLocalStorageState('candidates', []);
   const [isFetching, setIsFetching] = useState(false);
   const [modalCandidate, setModalCandidate] = useState();
-  const {isOpen, toggle } = useModal();
+  const { isOpen, toggle } = useModal();
 
   const newCandidates = candidates.filter(c => !c.accepted && !c.rejected);
   const acceptedCandidates = candidates.filter(c => c.accepted);
