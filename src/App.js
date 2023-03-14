@@ -63,7 +63,7 @@ function App() {
   return (
     <div className="App">
       <header className="header">
-        <img className="header-logo" src="/onsiteiq vector-logo.png" alt="header-logo" />
+        <img className="header-logo" src="/pink_gem_6.png" alt="header-logo" />
       </header>
 
       <div className="top-info">
