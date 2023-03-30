@@ -1,7 +1,7 @@
 {
   "name": "onsitehr",
   "version": "0.1.0",
-  "homepage": "./onsiteHR",
+  "homepage": "./",
   "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
