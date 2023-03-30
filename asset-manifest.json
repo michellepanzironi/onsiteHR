@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "./onsitehr/static/css/main.453f1f83.css",
+    "main.js": "./onsitehr/static/js/main.c567b94d.js",
+    "static/js/787.1c819077.chunk.js": "./onsitehr/static/js/787.1c819077.chunk.js",
+    "index.html": "./onsitehr/index.html",
+    "main.453f1f83.css.map": "./onsitehr/static/css/main.453f1f83.css.map",
+    "main.c567b94d.js.map": "./onsitehr/static/js/main.c567b94d.js.map",
+    "787.1c819077.chunk.js.map": "./onsitehr/static/js/787.1c819077.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.453f1f83.css",
+    "static/js/main.c567b94d.js"
+  ]
+}
