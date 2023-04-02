@@ -63,7 +63,9 @@ function App() {
   return (
     <div className="App">
       <header className="header">
-        <img className="header-logo" src="/pink_gem_6.png" alt="header-logo" />
+        <a href="https://michellepanzironi.com" target="_blank" rel="noreferrer">
+          <img className="header-logo" src="/pink_gem_6.png" alt="header-logo" />
+        </a>
       </header>
 
       <div className="top-info">
